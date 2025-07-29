@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "dataentry",
     "uploads",
+    'crispy_forms',
+    'crispy_bootstrap5'
     
 ]
 
@@ -156,7 +158,9 @@ DEFAULT_TO_EMAIL = 'manjunathbijjala22@gmail.com'
 
 
 
-# CRISPY_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap5"]
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 # CKEDITOR_CONFIGS = {
 #     'default': {

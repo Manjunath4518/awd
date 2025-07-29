@@ -4,5 +4,6 @@ from . import views
 urlpatterns = [
     path('import-data/', views.import_data, name='import_data'),
     path('', views.home, name='home'),
-    path('celery/',views.celery)
+    path('celery/',views.celery),
+    path('export-data/', views.export_data, name='export_data'),
 ]

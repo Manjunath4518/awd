@@ -18,8 +18,13 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
-
+from .views import home,register,login,logout
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
-    path('',include('dataentry.urls'))
+    path('dataentry/',include('dataentry.urls')),
+    path('',home,name='home'),
+    path('register/',register,name='register'),
+    path('login/',login,name='login'),
+    path('logout/',logout,name='logout')
 ] + static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)

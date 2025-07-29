@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        
+        <form method='POST'  action="{% url 'export_data' %}" style='max-width:600px;margin:auto;padding-top:5px;'>
+            {% csrf_token %}
+            <h3 style='padding-bottom:50px'>
+             Export data from Datatables tables
+        </h3>
+            
+            <div class="form-group">
+                <label for="model_name">Select DB table</label>
+                <select name="model_name" class='form-control' id="" required>
+                    <option value="" disabled selected>select</option>
+                    {% for model in all_models %}
+                        <option value="{{model}}">{{model}}</option>
+                        {% endfor %}
+                </select>
+            </div>
+            <input type="submit" value="Export data" class='btn btn-primary' style='margin-bottom:30px;' >
+             {% include "alerts.html" %}
+        </form>
+       
+    </div>
+
+    {% endblock %}
+    
+   
