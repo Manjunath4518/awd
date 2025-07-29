@@ -34,7 +34,7 @@
 
         <!-- Bulk Emails -->
         <div class="col-md-4">
-            <a href="#" class="text-decoration-none text-dark">
+            <a href="{%url 'send_email'%}" class="text-decoration-none text-dark">
                 <div class="card alert-danger shadow">
                     <div class="card-header">
                     <h4>Bulk Emails</h4>
@@ -95,9 +95,10 @@
     <div class="home-info">
         <h2 class="text-center">Taskera</h2>
         <p class="lead text-center text-muted">
-            "Taskera" is a project-based course to build various tools using the Django framework to automate routine tasks, ranging from data processing to scheduling, and more. 
-            By leveraging Django's capabilities, users can streamline their workflows, saving time and enhancing productivity.
-        </p>
+            Taskera is a productivity tool that automates everyday digital tasks with ease.
+From importing/exporting data to sending bulk emails and tracking responses, it handles it all.
+It also supports image compression and web scraping for smarter workflows.
+With Taskera, managing routine tasks becomes faster, simpler, and more efficient.</p>
 
         <div style="display: flex; justify-content: center;">
             <a href="{% url 'login' %}" class="btn btn-primary">LOGIN</a>
