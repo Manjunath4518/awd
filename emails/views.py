@@ -1,8 +1,9 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from .forms import *
 from django.conf import settings
 from dataentry.utils import send_email_notification
 from django.contrib import messages
+from django.db.models import Sum
 from .models import *
 from .tasks import *
 
@@ -40,3 +41,26 @@ def send_email(request):
             'email_form':email_form
         }
     return render(request,'emails/send-email.html',context)
+
+def track_click(request):
+    return
+
+def track_open(request):
+    return
+
+def track_dashboard(request):
+    emails = Email.objects.all().annotate(total_sent=Sum('sent__total_sent')).order_by('-sent_at')
+    
+    context = {
+        'emails': emails,
+    }
+    return render(request, 'emails/track_dashboard.html', context)
+
+def track_stats(request, pk):
+    email = get_object_or_404(Email, pk=pk)
+    sent = Sent.objects.get(email=email)
+    context = {
+        'email': email,
+        'total_sent': sent.total_sent,
+    }
+    return render(request, 'emails/track_stats.html', context)

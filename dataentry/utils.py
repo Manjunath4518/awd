@@ -64,6 +64,7 @@ def send_email_notification(mail_subject, message, to_email, attachment=None):
             mail = EmailMessage(mail_subject, message, from_email, to=[email])
             if attachment:
                 mail.attach_file(attachment)
+            mail.content_subtype = 'html'
             mail.send()
     except Exception as e:
         raise e

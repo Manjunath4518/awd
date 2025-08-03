@@ -44,6 +44,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'emails',
+    'ckeditor',
+    'anymail',
+    'image_compression',
+   
     
 ]
 
@@ -55,6 +59,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    
 ]
 
 ROOT_URLCONF = "awd_main.urls"
@@ -147,11 +152,11 @@ MESSAGE_TAGS = {
 CELERY_BROKER_URL = 'redis://localhost:6379'
 
 
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS=True
+# EMAIL_HOST = config('EMAIL_HOST')
+# EMAIL_PORT = config('EMAIL_PORT', cast=int)
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# EMAIL_USE_TLS=True
 DEFAULT_FROM_EMAIL = 'Automate with Django <manjunathrinku9381@gmail.com>'
 DEFAULT_TO_EMAIL = 'manjunathbijjala22@gmail.com'
 
@@ -163,16 +168,16 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap5"]
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
-# CKEDITOR_CONFIGS = {
-#     'default': {
-#         'height': 200,
-#     },
-# }
+CKEDITOR_CONFIGS = {
+    'default': {
+        'height': 200,
+    },
+}
 
-# EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
-# ANYMAIL = {
-#     "SENDINBLUE_API_KEY": config("SENDINBLUE_API_KEY"),
-# }
+EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
+ANYMAIL = {
+    "SENDINBLUE_API_KEY": config("SENDINBLUE_API_KEY"),
+}
 
-# CSRF_TRUSTED_ORIGINS = ['https://faff-114-79-178-247.ngrok-free.app']
-# BASE_URL = 'https://faff-114-79-178-247.ngrok-free.app'
+CSRF_TRUSTED_ORIGINS = ['https://faff-114-79-178-247.ngrok-free.app']
+BASE_URL = 'https://faff-114-79-178-247.ngrok-free.app'
